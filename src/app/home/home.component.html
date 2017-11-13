@@ -1,0 +1,50 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add a bucket list item</p>{title{}}
+  </div>
+  <div class="col">
+    <p>Your bucket list {{itemCount}}</p>
+  </div>
+</div>
+<div class="container color-light">
+  <div class="col">
+    <p class="sm">Use this form below to add a new bucket list goal. What do you want to accomplish in your life?</p>
+
+    <form>
+      <input type="text" class="txt" #goal placeholder="Life goal..">
+      <input type="button" class="btn" value="{{ btnText }}" (click)="addItem(goal.value)">
+    </form>
+  </div>
+  <div class="col">
+    <!-- To: -->
+	<p class="life-container" *ngFor="let goal of goals">
+	  {{ goal }}
+	</p>
+  </div>
+</div>
+
+<div class="container color-dark">
+  <div class="col">
+	<p>Contacts</p>
+  </div>
+</div>
+<div class="container color-light">	
+	<div class="col">
+		<p class="sm">Add Contact in your contact list</p>
+		<p class="error">{{error}}</p>
+		<form>
+	      <input #name class="txt" placeholder="name" />
+	      <input #phone class="txt" placeholder="phone" />
+	      <input type="button" class="btn" (click)="addContact(name.value,phone.value)" [value]="addContactBtn" />
+	    </form> 
+	</div>
+
+	<div class="col">
+		<p class="sm">Your current contact list</p>
+		<table>
+	        <tr *ngFor="let contact of contacts" style="margin-bottom: 10px;">
+	            <td>{{contact.descr}}</td> <td><input type="button" class="btn" value="{{deleteBtn}}" (click)="removeContact(contact)" /></td>
+	        </tr>
+	    </table>  
+	</div>
+</div>
